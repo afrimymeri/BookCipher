@@ -1,4 +1,4 @@
-## "BookCipher: Teknika e Kriptografisë për Komunikim të Sigurt"
+##  "BookCipher: Teknika e Kriptografisë për Komunikim të Sigurt"
 ## Përmbledhje
 
 Një BookCipher është një metodë kriptografike në të cilën çdo fjalë ose shkronjë në tekstin e hapur të një mesazhi zëvendësohet me një kod që e lokalizon atë në një tekst tjetër, i quajtur çelës. Një version i thjeshtë i këtij ciphers do të përdorte një libër të caktuar si çelës dhe do të zëvendësonte çdo fjalë të tekstit të hapur me një numër që tregon pozicionin ku ajo fjalë ndodhet në atë libër.
