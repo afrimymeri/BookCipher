@@ -46,4 +46,23 @@ public class Main {
         }
         return encodedMessage.toString().trim();
     }
+
+private static String decodeMessage(String encodedMessage) {
+        StringBuilder decodedMessage = new StringBuilder();
+        String[] indices = encodedMessage.split("\\s+");
+        for (String indexStr : indices) {
+            try {
+                int index = Integer.parseInt(indexStr);
+                for (Map.Entry<String, Integer> entry : wordIndexMap.entrySet()) {
+                    if (entry.getValue() == index) {
+                        decodedMessage.append(entry.getKey()).append(" ");
+                        break;
+                    }
+                }
+            } catch (NumberFormatException e) {
+                decodedMessage.append(indexStr).append(" ");
+            }
+        }
+        return decodedMessage.toString().trim();
+    }
 }
