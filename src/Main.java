@@ -21,7 +21,16 @@ public class Main {
             e.printStackTrace();
         }
     }
-}
+
+    public static void main(String[] args) {
+        loadTextDocument("src/bookcipher.txt");
+        String message = "A book cipher is properly called a spy";
+        String encodedMessage = encodeMessage(message);
+        System.out.println("Encoded message: " + encodedMessage);
+
+        String decodedMessage = decodeMessage(encodedMessage);
+        System.out.println("Decoded message: " + decodedMessage);
+    }
 
 
     private static String encodeMessage(String message) {
@@ -37,3 +46,4 @@ public class Main {
         }
         return encodedMessage.toString().trim();
     }
+}
