@@ -22,3 +22,18 @@ public class Main {
         }
     }
 }
+
+
+    private static String encodeMessage(String message) {
+        StringBuilder encodedMessage = new StringBuilder();
+        String[] words = message.split("\\s+");
+        for (String word : words) {
+            Integer index = wordIndexMap.get(word.toUpperCase());
+            if (index != null) {
+                encodedMessage.append(index).append(" ");
+            } else {
+                encodedMessage.append(word).append(" ");
+            }
+        }
+        return encodedMessage.toString().trim();
+    }
