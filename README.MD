@@ -1,4 +1,36 @@
-##  "BookCipher: Teknika e Kriptografisë për Komunikim të Sigurt"
+# Implementimi i book cipher i cili shfrytezon nje tekst dokument si liber
+
+
+## Universiteti
+
+ Universiteti i Prishtinës - Fakulteti i Inxhinierisë Elektrike dhe Kompjuterike 
+ Departmenti - Inxhinieri kompjuterike dhe softuerike
+*Ky është projekti i dytë nga kursi i Sigurisë së të Dhënave i cili u dha dhe u mbikqyr nga asistenti Mërgim Hoti.
+
+## Gjuha programuese
+
+Ky projekt është zhvilluar me gjuhën programuese JAVA
+
+## Si të përdoret
+
+1. Sigurohuni që të keni instaluar JDK në pajisjen tuaj.
+2. Klononi repositorinë ose shkarkoni dosjet e projektit.
+3. Hapni projektin në mjedisin tuaj të preferuar Java IDE.
+4. Ekzekutoni skriptën BookCipher.java.
+5. Ndiqni udhëzimet për të futur tekstin ose kodin e enkoduar dhe shikoni rezultatin.
+
+
+## Kontribuesit
+
+ - Adrian Mehaj
+
+ - Afrim Ymeri
+
+ - Ag Hamiti
+
+ - Adna Aslani
+
+
 ## Përmbledhje
 
 Një BookCipher është një metodë kriptografike në të cilën çdo fjalë ose shkronjë në tekstin e hapur të një mesazhi zëvendësohet me një kod që e lokalizon atë në një tekst tjetër, i quajtur çelës. Një version i thjeshtë i këtij ciphers do të përdorte një libër të caktuar si çelës dhe do të zëvendësonte çdo fjalë të tekstit të hapur me një numër që tregon pozicionin ku ajo fjalë ndodhet në atë libër.
@@ -10,7 +42,7 @@ Për shembull, nëse çelësi i zgjedhur është romani "Lufta e Botëve" nga H.
 
 ## Variantet
 
-Për të adresuar kufizimin e fjalëve që nuk shfaqen në tekstin e çelësit, një variant i BookCipher punon me shkronjat individuale në vend të fjalëve. Secila shkronjë në tekst hapur zëvendësohet me një numër që tregon pozicionin e saj në tekstin e çelësit. Për shembull, duke përdorur librin "War of the Worlds" si çelës, mesazhi "pa municion" mund të kodohet si "12 10 / 50 31 59 34," përfaqësuar pozicionet e shkronjave në tekst çelës.
+Për të adresuar kufizimin e fjalëve që nuk shfaqen në tekstin e çelësit, një variant i BookCipher punon me shkronjat individuale në vend të fjalëve. Secila shkronjë në tekst hapur zëvendësohet me një numër që tregon pozicionin e saj në tekstin e çelësit. Për shembull, duke përdorur librin "War of the Worlds" si çelës, mesazhi "pa municion" mund të kodohet si "12 10 / 50 31 59 34" përfaqësuar pozicionet e shkronjave në tekst çelës.
 
 ## Përdorimi
 
