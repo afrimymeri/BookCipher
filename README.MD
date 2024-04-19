@@ -4,8 +4,8 @@
 ## Universiteti
 
  - Universiteti i Prishtinës - Fakulteti i Inxhinierisë Elektrike dhe Kompjuterike                                                      
- - Departmenti - Inxhinieri kompjuterike dhe softuerike
- Ky është projekti i dytë nga kursi i Sigurisë së të Dhënave i cili u dha dhe u mbikqyr nga asistenti Mërgim Hoti.
+ - Departmenti - Inxhinieri kompjuterike dhe softuerike                                                                                                                         
+ - Ky është projekti i dytë nga kursi i Sigurisë së të Dhënave i cili u dha dhe u mbikqyr nga asistenti Mërgim Hoti.
 
 ## Gjuha programuese
 
