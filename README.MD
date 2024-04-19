@@ -1,15 +1,15 @@
-# Implementimi i book cipher i cili shfrytezon nje tekst dokument si liber
+# Implementimi i book cipher i cili shfrytëzon një tekst dokument si liber
 
 
 ## Universiteti
 
- Universiteti i Prishtinës - Fakulteti i Inxhinierisë Elektrike dhe Kompjuterike 
- Departmenti - Inxhinieri kompjuterike dhe softuerike
-*Ky është projekti i dytë nga kursi i Sigurisë së të Dhënave i cili u dha dhe u mbikqyr nga asistenti Mërgim Hoti.
+ - Universiteti i Prishtinës - Fakulteti i Inxhinierisë Elektrike dhe Kompjuterike                                                      
+ - Departmenti - Inxhinieri kompjuterike dhe softuerike
+ Ky është projekti i dytë nga kursi i Sigurisë së të Dhënave i cili u dha dhe u mbikqyr nga asistenti Mërgim Hoti.
 
 ## Gjuha programuese
 
-Ky projekt është zhvilluar me gjuhën programuese JAVA
+Ky projekt është zhvilluar me gjuhën programuese JAVA.
 
 ## Si të përdoret
 
