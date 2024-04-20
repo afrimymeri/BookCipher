@@ -96,7 +96,6 @@ public class BookCipheri {
         }
         return decodedMessage.toString().trim();
     }
-
     public static void main(String[] args) {
         // Example usage
         String txtFilePath = "src/librilibri.txt"; // Replace with the actual file path of your book
