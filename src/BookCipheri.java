@@ -11,7 +11,7 @@ public class BookCipheri {
     private int linesPerPage; // Number of lines per page
 
     // Constructor to initialize the book file path and lines per page
-    public BookCipher(String bookFilePath, int linesPerPage) {
+    public BookCipheri(String bookFilePath, int linesPerPage) {
         this.bookFilePath = bookFilePath;
         this.linesPerPage = linesPerPage;
     }
@@ -78,7 +78,7 @@ public class BookCipheri {
 
     public static void main(String[] args) {
         // Example usage
-        String txtFilePath = "C:\\Users\\Admin\\Desktop\\librilibri.txt"; // Replace with the actual file path of your book
+        String txtFilePath = "src/librilibri.txt"; // Replace with the actual file path of your book
         int linesPerPage = 20;
         BookCipheri cipher = new BookCipheri(txtFilePath, linesPerPage);
 
