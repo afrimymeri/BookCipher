@@ -72,8 +72,29 @@ public class BookCipheri {
 
 
     // Method to decode a message (not implemented for this version)
+    // Method to decode a message
     public String decode(String encodedMessage) {
-        return "Decoding not implemented for this version.";
+        List<String> bookLines = readBook();
+        StringBuilder decodedMessage = new StringBuilder();
+        String[] encodedWords = encodedMessage.split("\\s+");
+
+        for (int i = 0; i < encodedWords.length; i += 3) {
+            int page = Integer.parseInt(encodedWords[i]);
+            int line = Integer.parseInt(encodedWords[i + 1]);
+            int wordIndex = Integer.parseInt(encodedWords[i + 2]);
+
+            // Ensure the page and line numbers are within valid ranges
+            if (page >= 1 && page <= bookLines.size() / linesPerPage && line >= 1 && line <= linesPerPage) {
+                int lineIndex = (page - 1) * linesPerPage + line - 1;
+                if (lineIndex < bookLines.size()) {
+                    String[] wordsInLine = bookLines.get(lineIndex).split("\\s+");
+                    if (wordIndex >= 1 && wordIndex <= wordsInLine.length) {
+                        decodedMessage.append(wordsInLine[wordIndex - 1]).append(" ");
+                    }
+                }
+            }
+        }
+        return decodedMessage.toString().trim();
     }
 
     public static void main(String[] args) {
@@ -88,5 +109,7 @@ public class BookCipheri {
         // Encoding the message
         String encodedMessage = cipher.encode(messageToEncode);
         System.out.println("Encoded message: " + encodedMessage);
+        String decodedMessage = cipher.decode(encodedMessage);
+        System.out.println("Decoded message: " + decodedMessage);
     }
 }
