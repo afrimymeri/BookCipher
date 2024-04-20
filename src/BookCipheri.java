@@ -121,7 +121,7 @@ public class BookCipheri {
         BookCipheri cipher = new BookCipheri(txtFilePath, linesPerPage);
 
         // Message to encode
-        String messageToEncode = "When called impotent une North regarded";
+        String messageToEncode = "When called impotent North regarded";
 
         // Encoding the message
         String encodedMessage = cipher.encode(messageToEncode);
