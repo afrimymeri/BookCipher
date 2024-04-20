@@ -1,10 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.Set;
-import java.util.HashSet;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class BookCipheri {
     private String bookFilePath; // The file path of the book
@@ -33,69 +30,90 @@ public class BookCipheri {
     // Method to encode a message
     // Method to encode a message
     // Method to encode a message
-    // Method to encode a message
-    // Method to encode a message
-    // Method to encode a message
     public String encode(String message) {
         List<String> bookLines = readBook();
         StringBuilder encodedMessage = new StringBuilder();
         int currentPage = 1;
         int currentLine = 0;
         String[] words = message.split("\\s+");
-        Set<String> encodedWords = new HashSet<>(); // Set to keep track of encoded words
+        Map<String, List<String>> wordPositions = new HashMap<>(); // Map to store word positions
 
-        for (String line : bookLines) {
-            currentLine++;
-            if (currentLine > linesPerPage) {
-                currentPage++;
-                currentLine = 1;
-            }
-            int currentWord = 0; // Reset currentWord for each line
-            String[] wordsInLine = line.split("\\s+");
-            for (String word : wordsInLine) {
-                currentWord++;
-                for (int i = 0; i < words.length; i++) {
-                    if (!encodedWords.contains(words[i]) && word.equalsIgnoreCase(words[i])) {
-                        encodedMessage.append(currentPage).append(" ").append(currentLine).append(" ").append(currentWord).append(" ");
-                        encodedWords.add(words[i]); // Add the encoded word to the set
-                        break;
+        for (String word : words) {
+            List<String> positions = new ArrayList<>();
+            for (int i = 0; i < bookLines.size(); i++) {
+                currentLine++;
+                if (currentLine > linesPerPage) {
+                    currentPage++;
+                    currentLine = 1;
+                }
+                String[] wordsInLine = bookLines.get(i).split("\\s+");
+                for (int j = 0; j < wordsInLine.length; j++) {
+                    String bookWord = wordsInLine[j];
+                    if (word.equalsIgnoreCase(bookWord)) {
+                        positions.add(currentPage + " " + currentLine + " " + (j + 1));
                     }
                 }
             }
+            // Shuffle the positions if the word appears more than once
+            if (positions.size() > 1) {
+                Collections.shuffle(positions);
+            }
+            wordPositions.put(word.toLowerCase(), positions);
+            // Reset page and line for the next word
+            currentPage = 1;
+            currentLine = 0;
         }
+
+        for (String word : words) {
+            List<String> positions = wordPositions.get(word.toLowerCase());
+            if (positions != null && !positions.isEmpty()) {
+                String[] position = positions.get(0).split("\\s+");
+                encodedMessage.append(position[0]).append(" ");
+                encodedMessage.append(position[1]).append(" ");
+                encodedMessage.append(position[2]).append(" ");
+                positions.remove(0); // Remove the used position only after encoding
+            }
+        }
+
         return encodedMessage.toString().trim();
     }
 
 
 
-
-
-
-    // Method to decode a message (not implemented for this version)
+    // Method to decode a message
     // Method to decode a message
     public String decode(String encodedMessage) {
         List<String> bookLines = readBook();
         StringBuilder decodedMessage = new StringBuilder();
         String[] encodedWords = encodedMessage.split("\\s+");
-
         for (int i = 0; i < encodedWords.length; i += 3) {
             int page = Integer.parseInt(encodedWords[i]);
             int line = Integer.parseInt(encodedWords[i + 1]);
             int wordIndex = Integer.parseInt(encodedWords[i + 2]);
+            boolean wordFound = false;
 
-            // Ensure the page and line numbers are within valid ranges
-            if (page >= 1 && page <= bookLines.size() / linesPerPage && line >= 1 && line <= linesPerPage) {
+            for (int j = 0; j < bookLines.size(); j++) {
+                if (page == 0 || line == 0 || wordIndex == 0) break;
                 int lineIndex = (page - 1) * linesPerPage + line - 1;
                 if (lineIndex < bookLines.size()) {
                     String[] wordsInLine = bookLines.get(lineIndex).split("\\s+");
                     if (wordIndex >= 1 && wordIndex <= wordsInLine.length) {
                         decodedMessage.append(wordsInLine[wordIndex - 1]).append(" ");
+                        wordFound = true;
+                        break;
                     }
                 }
+            }
+
+            if (!wordFound) {
+                // If the word is not found, append a placeholder
+                decodedMessage.append("[WORD NOT FOUND]").append(" ");
             }
         }
         return decodedMessage.toString().trim();
     }
+
+
     public static void main(String[] args) {
         // Example usage
         String txtFilePath = "src/librilibri.txt"; // Replace with the actual file path of your book
@@ -103,11 +121,13 @@ public class BookCipheri {
         BookCipheri cipher = new BookCipheri(txtFilePath, linesPerPage);
 
         // Message to encode
-        String messageToEncode = "When called impotent";
+        String messageToEncode = "When called impotent une North regarded";
 
         // Encoding the message
         String encodedMessage = cipher.encode(messageToEncode);
         System.out.println("Encoded message: " + encodedMessage);
+
+        // Decoding the message
         String decodedMessage = cipher.decode(encodedMessage);
         System.out.println("Decoded message: " + decodedMessage);
     }
