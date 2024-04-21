@@ -4,31 +4,11 @@ import java.io.IOException;
 import java.util.*;
 
 public class BookCipheri {
+    private int linesPerPage;  // Number of lines per page
     private String bookFilePath; // The file path of the book
-    private int linesPerPage; // Number of lines per page
 
     // Constructor to initialize the book file path and lines per page
-    public BookCipheri(String bookFilePath, int linesPerPage) {
-        this.bookFilePath = bookFilePath;
-        this.linesPerPage = linesPerPage;
-    }
-
     // Method to read the book text from file
-    private List<String> readBook() {
-        List<String> lines = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(bookFilePath))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                lines.add(line);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return lines;
-    }
-
-    // Method to encode a message
-    // Method to encode a message
     // Method to encode a message
     public String encode(String message) {
         List<String> bookLines = readBook();
@@ -78,6 +58,24 @@ public class BookCipheri {
         return encodedMessage.toString().trim();
     }
 
+    public BookCipheri(String bookFilePath, int linesPerPage) {
+        this.bookFilePath = bookFilePath;
+        this.linesPerPage = linesPerPage;
+    }
+
+    private List<String> readBook() {
+        List<String> lines = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(bookFilePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                lines.add(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return lines;
+    }
+
 
 
     // Method to decode a message
@@ -103,7 +101,9 @@ public class BookCipheri {
                         break;
                     }
                 }
+
             }
+
 
             if (!wordFound) {
                 // If the word is not found, append a placeholder
